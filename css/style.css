@@ -81,6 +81,7 @@ nav ul li a.active::after ,nav ul li a:hover::after {
 .home .row div h1{
     font-weight: 700;
     text-transform: uppercase;
+    margin:4px 0 15px
 }
 .home .row div h1 span{
     color: orange;
@@ -269,3 +270,12 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     font-size: 14px;
 }
 /* end contact */
+
+@media (min-width:320px) and (max-width:480px){
+    .home .row div p:first-child{
+    font-size: 25px;
+}
+.home .row div h1{
+    font-size:32px
+}
+}
