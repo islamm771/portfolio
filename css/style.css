@@ -17,6 +17,15 @@ nav{
     border-bottom: 1px solid #ffffff1f;
     transition: 0.5s;
 }
+nav button{
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+nav button i{
+    color: white;
+    font-size: 26px;
+}
 nav a{
     color: #fff !important;
     text-transform: uppercase;
@@ -47,6 +56,9 @@ nav ul li a.active::after ,nav ul li a:hover::after {
 }
 .nav-scroll a{
     color: #212121 !important;
+}
+.nav-scroll button i{
+    color: black;
 }
 /* end  nav */
 
