@@ -98,6 +98,15 @@ nav ul li a.active::after ,nav ul li a:hover::after {
 .home .row div h1 span{
     color: orange;
 }
+.home .button{
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    padding: 10px 45px;
+    text-decoration: none;
+    border-radius: 45px;
+    border: 0;
+}
 /* end header */
 
 /* start about */
