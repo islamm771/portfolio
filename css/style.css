@@ -1,40 +1,48 @@
-html{
+html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     line-height: 28px;
 }
+
 /* start nav */
-nav{
+nav {
     position: absolute !important;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255,255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     z-index: 99999;
     border-bottom: 1px solid #ffffff1f;
     transition: 0.5s;
 }
-nav button{
+
+nav button {
     border: 0 !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
-nav button i{
+
+nav button i {
     color: white;
     font-size: 26px;
 }
-nav a{
+
+nav a {
     color: #fff !important;
     text-transform: uppercase;
     position: relative;
 }
-nav a.active, nav a:hover{
+
+nav a.active,
+nav a:hover {
     color: orange !important;
 }
-nav ul li a::after{
+
+nav ul li a::after {
     content: "";
     position: absolute;
     width: calc(100% - 16px);
@@ -46,25 +54,31 @@ nav ul li a::after{
     transition: 0.5s;
     transform: rotateY(90deg);
 }
-nav ul li a.active::after ,nav ul li a:hover::after {
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
     transform: rotateY(0deg);
 }
-.nav-scroll{
+
+.nav-scroll {
     position: fixed !important;
     background-color: white;
     box-shadow: 0 2px 2px 0 #eee;
 }
-.nav-scroll a{
+
+.nav-scroll a {
     color: #212121 !important;
 }
-.nav-scroll button i{
+
+.nav-scroll button i {
     color: black;
 }
+
 /* end  nav */
 
 
 /* start header */
-.home{
+.home {
     height: 100vh;
     background-image: url(../images/01.jpg);
     background-size: cover;
@@ -72,7 +86,8 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     background-repeat: no-repeat;
     position: relative;
 }
-.home::before{
+
+.home::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -81,24 +96,34 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.home .row div{
+
+.home .row div {
     position: relative;
     color: white;
     z-index: 999;
 }
-.home .row div p:first-child{
+
+.home .row div p:first-child {
     margin: 0;
     font-size: 30px;
 }
-.home .row div h1{
+
+.home .row div p:last-of-type {
+    max-width: 700px;
+    font-size: 18px;
+}
+
+.home .row div h1 {
     font-weight: 700;
     text-transform: uppercase;
-    margin:4px 0 15px
+    margin: 4px 0 15px
 }
-.home .row div h1 span{
+
+.home .row div h1 span {
     color: orange;
 }
-.home .button{
+
+.home .button {
     display: inline-block;
     background-color: orange;
     color: white;
@@ -107,19 +132,22 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     border-radius: 45px;
     border: 0;
 }
+
 /* end header */
 
 /* start about */
-.about{
+.about {
     padding: 5rem 0;
 }
-.special-heading{
+
+.special-heading {
     color: orange;
     display: inline-block;
     position: relative;
     margin-bottom: 15px;
 }
-.special-heading::before{
+
+.special-heading::before {
     content: "";
     position: absolute;
     top: 14px;
@@ -128,7 +156,8 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     height: 2px;
     background-color: orange;
 }
-.special-heading::after{
+
+.special-heading::after {
     content: "";
     position: absolute;
     top: 14px;
@@ -137,36 +166,45 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     height: 2px;
     background-color: orange;
 }
-.container > div h2{
+
+.container>div h2 {
     font-weight: 700;
 }
-.container > div:first-child p{
+
+.container>div:first-child p {
     font-size: 14px;
 }
-.about .row div .row div >div{
+
+.about .row div .row div>div {
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
+
 /* end about */
 
 /* start skill */
-.skill, .projects{
+.skill,
+.projects {
     padding: 5rem 0;
     background-color: #eee;
 }
-.skill .container div h1{
+
+.skill .container div h1 {
     font-weight: 700;
 }
-.skill .d-flex span{
+
+.skill .d-flex span {
     font-weight: 700;
 }
-.skill .bar{
+
+.skill .bar {
     width: 100%;
     height: 15px;
     background-color: #717171;
     position: relative;
 }
-.skill .bar span{
+
+.skill .bar span {
     position: absolute;
     top: 0;
     left: 0;
@@ -175,19 +213,23 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     background-color: orange;
     transition: width 1.5s;
 }
+
 /* end skill */
 
 /* start services */
-.services,.contact{
+.services,
+.contact {
     padding: 5rem 0;
 }
-.services .title{
+
+.services .title {
     border-bottom: 1px solid #0000002d;
     padding: 5px 15px;
     text-align: right;
     overflow: hidden;
 }
-.services .title span{
+
+.services .title span {
     display: inline-block;
     color: #b8b8b8;
     font-weight: 700;
@@ -195,12 +237,14 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     transition: 0.5s;
     transform: translateY(50%);
 }
-.services .card h5{
+
+.services .card h5 {
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 15px;
 }
-.services .img-hold{
+
+.services .img-hold {
     background-color: orange;
     width: 100px;
     height: 100px;
@@ -208,41 +252,52 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     padding: 25px 0;
     transition: 0.7s;
 }
-.services .img-hold ~ p{
+
+.services .img-hold~p {
     padding: 0 20px;
 }
-.services .card:hover .title span{
+
+.services .card:hover .title span {
     transform: translateY(0);
 }
-.services .card:hover .img-hold{
+
+.services .card:hover .img-hold {
     transform: rotateY(180deg);
 }
+
 /* end services */
 
 /* start project */
-.projects .project{
+.projects .project {
     position: relative;
     overflow: hidden;
     transition: 0.5s;
 }
-.projects .project .project-details{
+
+.projects .project .project-details {
     margin: 18px 0;
 }
-.projects .project .project-details h5{
+
+.projects .project .project-details h5 {
     margin: 0;
 }
-.projects .project .project-details h5 a{
+
+.projects .project .project-details h5 a {
     color: black;
     text-decoration: none;
     transition: 0.3s;
 }
-.projects .project:hover{
+
+.projects .project:hover {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
-.projects .project:hover .project-details h5 a,.projects .project .project-details h5 a:hover{
+
+.projects .project:hover .project-details h5 a,
+.projects .project .project-details h5 a:hover {
     color: orange;
 }
-.projects .project img{
+
+.projects .project img {
     width: 100%;
     height: 240px;
 }
@@ -251,13 +306,15 @@ nav ul li a.active::after ,nav ul li a:hover::after {
 
 
 /* start contact */
-.contact .row div p{
+.contact .row div p {
     font-size: 18px;
     margin-bottom: 10px;
 }
-.contact .row div p:last-of-type{
+
+.contact .row div p:last-of-type {
     font-size: 16px;
 }
+
 .contact .row div ul {
     list-style: none;
     display: flex;
@@ -266,22 +323,27 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     margin: 0;
     margin-top: 25px;
 }
-.contact .row div ul li a{
+
+.contact .row div ul li a {
     color: black;
     font-size: 17px;
     transition: 0.5s;
 }
-.contact .row div ul li a:hover{
+
+.contact .row div ul li a:hover {
     color: orange;
 }
-.contact input, .contact textarea{
+
+.contact input,
+.contact textarea {
     border: 0;
     outline: 0;
     border-bottom: 1px solid #ddd;
     padding: 10px 15px;
     width: 100%;
 }
-.contact button{
+
+.contact button {
     color: white;
     background-color: orange;
     border: 0;
@@ -290,13 +352,15 @@ nav ul li a.active::after ,nav ul li a:hover::after {
     font-weight: 700;
     font-size: 14px;
 }
+
 /* end contact */
 
-@media (min-width:320px) and (max-width:480px){
-    .home .row div p:first-child{
-    font-size: 25px;
-}
-.home .row div h1{
-    font-size:32px
-}
+@media (min-width:320px) and (max-width:480px) {
+    .home .row div p:first-child {
+        font-size: 25px;
+    }
+
+    .home .row div h1 {
+        font-size: 32px
+    }
 }
