@@ -1,33 +1,17 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function ThemeToggle() {
-    const [mounted, setMounted] = useState(false);
-    const { resolvedTheme, setTheme } = useTheme();
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return (
-            <button className="rounded-lg p-2 cursor-pointer">
-                <FiSun />
-            </button>
-        );
-    }
-
+    const { theme = "dark", setTheme } = useTheme();
     return (
         <button
-            onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-            className="rounded-lg p-2 cursor-pointer hover:bg-surface"
+            className="transition-all duration-300 hover:bg-surface p-2 rounded-md cursor-pointer"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
-            {resolvedTheme === "dark" ? <FiSun /> : <FiMoon />}
+            <FiSun className="hidden dark:block" size={25} />
+            <FiMoon className="block dark:hidden" size={25} />
         </button>
     );
 }

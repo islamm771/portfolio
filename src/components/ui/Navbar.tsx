@@ -2,16 +2,12 @@
 
 import { navLinks } from "@/utils/data";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import ThemeToggle from "../ThemeToggle";
 
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const pathName = usePathname();
-  console.log(pathName)
 
   return (
     <nav
@@ -33,13 +29,13 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <button
             aria-label="Menu"
             className="flex md:hidden text-fg"
             onClick={() => setOpen(true)}
           >
-            <LuMenu />
+            <LuMenu size={25} />
           </button>
           <ThemeToggle />
         </div>

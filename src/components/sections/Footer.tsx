@@ -72,7 +72,7 @@ const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="flex items-center gap-10 mt-12">
+                    <ul className="grid grid-cols-5 gap-6 mt-12">
                         {myLinks.map((item) => (
                             <li key={item.id}>
                                 <Link
