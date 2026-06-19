@@ -28,27 +28,27 @@ const footerLinks = [
 const myLinks = [
     {
         id: 1,
-        href: "#",
+        href: "https://www.facebook.com/karizma.guy.9",
         icon: FaFacebookF,
     },
     {
         id: 2,
-        href: "#",
+        href: "https://www.linkedin.com/in/islam-ibrahim-71b22721b/",
         icon: FaLinkedin,
     },
     {
         id: 3,
-        href: "#",
+        href: "https://github.com/islamm771",
         icon: FaGithub,
     },
     {
         id: 4,
-        href: "#",
+        href: "https://wa.me/201272753203",
         icon: RiWhatsappFill,
     },
     {
         id: 5,
-        href: "#",
+        href: "mailto:islamibrahim1514@gmail.com",
         icon: IoMdMail,
     },
 ]
@@ -62,13 +62,14 @@ const Footer = () => {
                     <ul className="flex items-center gap-10">
                         {footerLinks.map((item) => (
                             <li key={item.id}>
-                                <Link
+                                <a
                                     href={item.href}
-                                    className="font-medium text-fg flex items-center gap-1.5"
+                                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                    className="bg-surface size-12 rounded-full flex items-center justify-center"
                                 >
-                                    <item.icon />
-                                    {item.label}
-                                </Link>
+                                    <item.icon size={20} />
+                                </a>
                             </li>
                         ))}
                     </ul>

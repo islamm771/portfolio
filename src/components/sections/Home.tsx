@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { GoDownload } from "react-icons/go";
 const Home = () => {
     return (
@@ -21,13 +22,17 @@ const Home = () => {
                             </p>
                         </div>
                         <div className="flex items-center">
-                            <button className="btn bg-primary text-white font-medium rounded-4xl">
+                            <Link href="#contact" className="btn bg-primary text-white font-medium rounded-4xl">
                                 Hire me
-                            </button>
-                            <button className="btn bg-secondary text-white font-medium rounded-4xl ml-4">
+                            </Link>
+                            <a
+                                href="/Islam_Ibrahim.pdf"
+                                download="Islam_Ibrahim_CV.pdf"
+                                className="btn bg-surface text-fg font-medium rounded-4xl ml-4"
+                            >
                                 Download CV
                                 <GoDownload />
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div>
