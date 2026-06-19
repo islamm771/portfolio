@@ -21,14 +21,14 @@ const Home = () => {
                                 focus on delivering exceptional digital experiences.
                             </p>
                         </div>
-                        <div className="flex items-center">
+                        <div className="flex items-center flex-wrap gap-4">
                             <Link href="#contact" className="btn bg-primary text-white font-medium rounded-4xl">
                                 Hire me
                             </Link>
                             <a
                                 href="/Islam_Ibrahim.pdf"
                                 download="Islam_Ibrahim_CV.pdf"
-                                className="btn bg-surface text-fg font-medium rounded-4xl ml-4"
+                                className="btn bg-surface text-fg font-medium rounded-4xl"
                             >
                                 Download CV
                                 <GoDownload />

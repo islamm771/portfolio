@@ -59,14 +59,14 @@ const Footer = () => {
         <section id="contact" className="bg-bg border-t border-t-border">
             <div className="container mx-auto px-6 xl:px-24 py-20">
                 <div className="flex flex-col items-center">
-                    <ul className="flex items-center gap-10">
+                    <ul className="flex items-center gap-4 lg:gap-10">
                         {footerLinks.map((item) => (
                             <li key={item.id}>
                                 <a
                                     href={item.href}
                                     target={item.href.startsWith("http") ? "_blank" : undefined}
                                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                    className="flex items-center gap-2">
+                                    className="flex flex-col sm:flex-row items-center gap-2">
                                     <span className="bg-surface size-12 rounded-full flex items-center justify-center">
                                         <item.icon size={20} />
                                     </span>
@@ -75,7 +75,7 @@ const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="grid grid-cols-5 gap-6 mt-12">
+                    <ul className="grid grid-cols-3 sm:grid-cols-5 gap-6 mt-12">
                         {myLinks.map((item) => (
                             <li key={item.id}>
                                 <Link

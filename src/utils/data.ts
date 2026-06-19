@@ -150,6 +150,17 @@ export const projects: IProject[] = [
         live: "https://pharma-scope.vercel.app",
     },
     {
+        id: 7,
+        title: "E Learning Platform",
+        category: "Education Platform",
+        image: "/imgs/projects/e-learning.png",
+        description:
+            "Developed a fully responsive E-Learning platform using React, Tailwind CSS, and DaisyUI, featuring course discovery, detailed course pages, modern UI components, and an optimized user experience across all devices.",
+        tech: ["React", "Tailwind", "DiasyUI"],
+        github: "https://github.com/islamm771/E-learning-Platform",
+        live: "https://e-learning-platform-nine-psi.vercel.app",
+    },
+    {
         id: 3,
         title: "Scholar",
         category: "Education Platform",
