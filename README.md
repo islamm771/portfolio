@@ -128,9 +128,9 @@ I enjoy transforming designs into responsive, accessible, and user-friendly expe
 
 ## 📫 Contact
 
-- Email: your-email@example.com
-- LinkedIn: https://linkedin.com/in/your-profile
-- GitHub: https://github.com/yourusername
+- Email: islamibrahim1514@gmail.com
+- LinkedIn: https://www.linkedin.com/in/islam-ibrahim-71b22721b/
+- GitHub: https://github.com/islamm771
 
 ---
 
