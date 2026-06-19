@@ -1,7 +1,48 @@
+"use client";
+
+import { contactSchema } from "@/lib/validation/contact";
 import Image from "next/image";
+import { ChangeEvent, SubmitEvent, useState } from "react";
+import toast from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
+import z from "zod";
+import AlertMessage from "../ui/AlertMessage";
 
 const Contact = () => {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        message: ""
+    })
+    const [errors, setErrors] = useState<{
+        name?: string;
+        email?: string;
+        message?: string;
+    }>({});
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target
+        setForm(prev => ({ ...prev, [name]: value }))
+    }
+
+    const submitHandler = (e: SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const validation = contactSchema.safeParse(form)
+
+        if (!validation.success) {
+            const errors = z.flattenError(validation.error).fieldErrors
+            setErrors({
+                name: errors.name?.[0] || "",
+                email: errors.email?.[0] || "",
+                message: errors.message?.[0] || "",
+            });
+        }
+
+        toast.success("Message is sent successfully")
+    }
+
+
     return (
         <section id="contact" className="bg-bg">
             <div className="container mx-auto px-6 xl:px-24 py-20">
@@ -25,7 +66,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right Side */}
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={submitHandler}>
                         <div className="grid gap-4 md:grid-cols-2">
                             <div>
                                 <label className="mb-2 block text-sm font-medium">
@@ -36,7 +77,14 @@ const Contact = () => {
                                     type="text"
                                     placeholder="Name"
                                     className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleInputChange}
                                 />
+
+                                {errors.name && (
+                                    <AlertMessage msg={errors.name} />
+                                )}
                             </div>
 
                             <div>
@@ -48,7 +96,14 @@ const Contact = () => {
                                     type="email"
                                     placeholder="Email"
                                     className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleInputChange}
                                 />
+
+                                {errors.email && (
+                                    <AlertMessage msg={errors.email} />
+                                )}
                             </div>
                         </div>
 
@@ -61,7 +116,14 @@ const Contact = () => {
                                 rows={8}
                                 placeholder="Message"
                                 className="w-full resize-none rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                name="message"
+                                value={form.message}
+                                onChange={handleInputChange}
                             />
+
+                            {errors.message && (
+                                <AlertMessage msg={errors.message} />
+                            )}
                         </div>
 
                         <button

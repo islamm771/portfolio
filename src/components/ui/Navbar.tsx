@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import ThemeToggle from "../ThemeToggle";
+import MobileNav from "./MobileNav";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <button
             aria-label="Menu"
-            className="flex md:hidden text-fg"
+            className="flex md:hidden text-fg cursor-pointer"
             onClick={() => setOpen(true)}
           >
             <LuMenu size={25} />
@@ -43,35 +44,7 @@ export default function Navbar() {
 
       <>
         {open && (
-          <>
-            <div
-              className="fixed inset-0 z-40 bg-black/50 h-screen"
-              onClick={() => setOpen(false)}
-            />
-
-            <div className="fixed left-0 top-0 z-50 h-screen w-72 bg-bg p-6 shadow-lg">
-              <h2 className="mb-6 text-xl font-bold text-fg">
-                Menu
-              </h2>
-
-              <div className="flex flex-col gap-5">
-                {navLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="text-fg transition hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
-                <button className="mt-4 rounded-lg bg-primary px-4 py-2 text-white">
-                  Download CV
-                </button>
-              </div>
-            </div>
-          </>
+          <MobileNav setOpen={setOpen} />
         )}
       </>
     </nav>

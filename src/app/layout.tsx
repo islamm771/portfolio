@@ -2,6 +2,7 @@ import { Providers } from "@/components/ThemeProvider";
 import Navbar from "@/components/ui/Navbar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 
@@ -35,6 +36,12 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              className: "!bg-surface !text-fg",
+            }}
+          />
         </Providers>
       </body>
     </html>

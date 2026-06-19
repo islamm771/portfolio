@@ -66,9 +66,11 @@ const Footer = () => {
                                     href={item.href}
                                     target={item.href.startsWith("http") ? "_blank" : undefined}
                                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                    className="bg-surface size-12 rounded-full flex items-center justify-center"
-                                >
-                                    <item.icon size={20} />
+                                    className="flex items-center gap-2">
+                                    <span className="bg-surface size-12 rounded-full flex items-center justify-center">
+                                        <item.icon size={20} />
+                                    </span>
+                                    <p>{item.label}</p>
                                 </a>
                             </li>
                         ))}
