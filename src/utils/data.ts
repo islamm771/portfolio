@@ -100,7 +100,7 @@ export const skills: ISkill[] = [
 ];
 
 
-export const journey: IJourney[] = [
+export const journeys: IJourney[] = [
     {
         year: "2022 - 2023",
         title: "Frontend Developer Trainee",

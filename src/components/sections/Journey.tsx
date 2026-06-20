@@ -1,4 +1,4 @@
-import { journey } from "@/utils/data";
+import { journeys } from "@/utils/data";
 import Image from "next/image";
 import JourneyCard from "../ui/JourneyCard";
 
@@ -23,17 +23,8 @@ const Journey = () => {
 
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     <div className="space-y-6">
-                        {journey.map((item, index) => (
-                            <div key={index} className="flex gap-5">
-                                <div className="relative flex flex-col items-center">
-                                    <div className="z-10 h-4 w-4 rounded-full bg-primary" />
-                                    {index !== journey.length - 1 && (
-                                        <div className="absolute top-4 h-full w-0.5 bg-primary" />
-                                    )}
-                                </div>
-
-                                <JourneyCard {...item} />
-                            </div>
+                        {journeys.map((item, index) => (
+                            <JourneyCard {...item} index={index} key={index} />
                         ))}
                     </div>
 
