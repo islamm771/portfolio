@@ -19,14 +19,17 @@ const Contact = () => {
         email?: string;
         message?: string;
     }>({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
         setForm(prev => ({ ...prev, [name]: value }))
     }
 
-    const submitHandler = (e: SubmitEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setErrors({})
+        setIsLoading(true)
 
         const validation = contactSchema.safeParse(form)
 
@@ -37,11 +40,28 @@ const Contact = () => {
                 email: errors.email?.[0] || "",
                 message: errors.message?.[0] || "",
             });
+            setIsLoading(false)
+            return;
         }
 
-        toast.success("Message is sent successfully")
+        try {
+            const res = await fetch("http://localhost:3000/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(form),
+            })
+            if (res.ok) {
+                toast.success("Message is sent successfully")
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error("Something went wrong")
+        } finally {
+            setIsLoading(false)
+        }
     }
-
 
     return (
         <section id="contact" className="bg-bg">
@@ -128,10 +148,20 @@ const Contact = () => {
 
                         <button
                             type="submit"
-                            className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-white transition hover:opacity-90 cursor-pointer"
+                            disabled={isLoading}
+                            className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Send Message
-                            <FiSend />
+                            {isLoading ? (
+                                <>
+                                    <div className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    Send Message
+                                    <FiSend />
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>

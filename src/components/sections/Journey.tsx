@@ -2,11 +2,6 @@ import { journeys } from "@/utils/data";
 import Image from "next/image";
 import JourneyCard from "../ui/JourneyCard";
 
-
-
-
-
-
 const Journey = () => {
     return (
         <section id="my-journey" className="bg-bg">
