@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { GoDownload } from "react-icons/go";
+import Typewriter from "typewriter-effect";
+
 const Home = () => {
     return (
         <div className="" id="home">
@@ -8,11 +11,20 @@ const Home = () => {
                 <div className="grid items-center grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <div className="mb-5">
-                            <h2 className="text-5xl font-bold mb-4">
-                                Hi, I’m <span className="text-[#00ADB5]">Islam Ibrahim</span>
+                            <h2 className="text-5xl font-bold mb-4 flex items-center gap-2 flex-wrap">
+                                Hi, I’m
+                                <Typewriter
+                                    options={{
+                                        strings: ["Islam Ibrahim", "Frontend Developer"],
+                                        autoStart: true,
+                                        loop: true,
+                                        wrapperClassName: "text-primary font-bold",
+                                        cursorClassName: "text-primary",
+                                    }}
+                                />
                             </h2>
                             <p className="text-xl font-medium text-fg mb-4">
-                                Frontend Developer (React.js / Next.js)
+                                Frontend Developer | React.js & Next.js
                             </p>
                             <p className="max-w-xl leading-8 text-fg/70">
                                 I specialize in building fast, scalable, and user-friendly web
@@ -43,7 +55,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
