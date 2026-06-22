@@ -1,7 +1,6 @@
 "use client";
 
 import { contactSchema } from "@/lib/validation/contact";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 import toast from "react-hot-toast";
@@ -67,113 +66,105 @@ const Contact = () => {
     return (
         <section id="contact" className="bg-bg">
             <div className="container mx-auto px-6 xl:px-24 py-20">
-                <motion.div
-                    className="box"
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-                        {/* Left Side */}
-                        <div className="flex flex-col justify-center">
-                            <h2 className="text-5xl font-bold leading-tight">
-                                Got a project in
-                                <br />
-                                <span className="text-primary">mind?</span>
-                            </h2>
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+                    {/* Left Side */}
+                    <div className="flex flex-col justify-center">
+                        <h2 className="text-5xl font-bold leading-tight">
+                            Got a project in
+                            <br />
+                            <span className="text-primary">mind?</span>
+                        </h2>
 
-                            <div className="mt-8">
-                                <Image
-                                    src="/imgs/illustration_6.png"
-                                    alt="contact"
-                                    width={350}
-                                    height={350}
-                                />
-                            </div>
+                        <div className="mt-8">
+                            <Image
+                                src="/imgs/illustration_6.png"
+                                alt="contact"
+                                width={350}
+                                height={350}
+                            />
                         </div>
+                    </div>
 
-                        {/* Right Side */}
-                        <form className="space-y-6" onSubmit={submitHandler}>
-                            <div className="grid gap-4 md:grid-cols-2">
-                                <div>
-                                    <label className="mb-2 block text-sm font-medium">
-                                        Your name
-                                    </label>
+                    {/* Right Side */}
+                    <form className="space-y-6" onSubmit={submitHandler}>
+                        <div className="grid gap-4 md:grid-cols-2">
+                            <div>
+                                <label className="mb-2 block text-sm font-medium">
+                                    Your name
+                                </label>
 
-                                    <input
-                                        type="text"
-                                        placeholder="Name"
-                                        className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
-                                        name="name"
-                                        value={form.name}
-                                        onChange={handleInputChange}
-                                    />
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleInputChange}
+                                />
 
-                                    {errors.name && (
-                                        <AlertMessage msg={errors.name} />
-                                    )}
-                                </div>
-
-                                <div>
-                                    <label className="mb-2 block text-sm font-medium">
-                                        Your email
-                                    </label>
-
-                                    <input
-                                        type="email"
-                                        placeholder="Email"
-                                        className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
-                                        name="email"
-                                        value={form.email}
-                                        onChange={handleInputChange}
-                                    />
-
-                                    {errors.email && (
-                                        <AlertMessage msg={errors.email} />
-                                    )}
-                                </div>
+                                {errors.name && (
+                                    <AlertMessage msg={errors.name} />
+                                )}
                             </div>
 
                             <div>
                                 <label className="mb-2 block text-sm font-medium">
-                                    Your Message
+                                    Your email
                                 </label>
 
-                                <textarea
-                                    rows={8}
-                                    placeholder="Message"
-                                    className="w-full resize-none rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
-                                    name="message"
-                                    value={form.message}
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className="w-full rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                    name="email"
+                                    value={form.email}
                                     onChange={handleInputChange}
                                 />
 
-                                {errors.message && (
-                                    <AlertMessage msg={errors.message} />
+                                {errors.email && (
+                                    <AlertMessage msg={errors.email} />
                                 )}
                             </div>
+                        </div>
 
-                            <button
-                                type="submit"
-                                disabled={isLoading}
-                                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {isLoading ? (
-                                    <>
-                                        <div className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                                        Sending...
-                                    </>
-                                ) : (
-                                    <>
-                                        Send Message
-                                        <FiSend />
-                                    </>
-                                )}
-                            </button>
-                        </form>
-                    </div>
-                </motion.div>
+                        <div>
+                            <label className="mb-2 block text-sm font-medium">
+                                Your Message
+                            </label>
+
+                            <textarea
+                                rows={8}
+                                placeholder="Message"
+                                className="w-full resize-none rounded-xl bg-surface px-4 py-3 outline-none border border-transparent focus:border-primary"
+                                name="message"
+                                value={form.message}
+                                onChange={handleInputChange}
+                            />
+
+                            {errors.message && (
+                                <AlertMessage msg={errors.message} />
+                            )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            {isLoading ? (
+                                <>
+                                    <div className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    Send Message
+                                    <FiSend />
+                                </>
+                            )}
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
     );
